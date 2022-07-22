@@ -1,6 +1,8 @@
 package dao;
 import models.Staff;
 import org.sql2o.*;
+
+import java.sql.Connection;
 import java.util.List;
 
 public class Sql2oStaffDao implements StaffDao {
