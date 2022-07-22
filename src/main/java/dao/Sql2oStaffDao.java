@@ -1,9 +1,8 @@
 package dao;
 import models.Staff;
 import org.sql2o.*;
-
-import java.sql.Connection;
 import java.util.List;
+
 
 public class Sql2oStaffDao implements StaffDao {
     private final Sql2o sql2o;
@@ -30,6 +29,15 @@ public class Sql2oStaffDao implements StaffDao {
     public List<Staff> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM staff")
+                    .executeAndFetch(Staff.class);
+        }
+    }
+
+    @Override
+    public List<Staff> getByDepartment(int departmentId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM staff WHERE departmentId = :departmentId")
+                    .addParameter("departmentId", departmentId)
                     .executeAndFetch(Staff.class);
         }
     }
@@ -78,5 +86,4 @@ public class Sql2oStaffDao implements StaffDao {
             System.out.println(ex);
         }
     }
-
 }

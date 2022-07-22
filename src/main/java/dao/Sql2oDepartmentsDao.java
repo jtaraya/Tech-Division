@@ -6,13 +6,10 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-import java.sql.Connection;
 import java.util.List;
 
 public class Sql2oDepartmentsDao implements DepartmentsDao{
-
     private final Sql2o sql2o;
-
     public Sql2oDepartmentsDao(Sql2o sql2o){
         this.sql2o = sql2o;
     }
@@ -48,7 +45,6 @@ public class Sql2oDepartmentsDao implements DepartmentsDao{
         }
     }
 
-
     @Override
     public void update(int id, String name){
         String sql = "UPDATE departments SET name = :name WHERE id=:id";
@@ -75,6 +71,8 @@ public class Sql2oDepartmentsDao implements DepartmentsDao{
     }
 
 
+
+
     @Override
     public void deleteAllDepartments() {
         String sql = "DELETE from departments";
@@ -85,5 +83,6 @@ public class Sql2oDepartmentsDao implements DepartmentsDao{
             System.out.println(ex);
         }
     }
+
 
 }
