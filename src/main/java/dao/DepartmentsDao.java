@@ -5,19 +5,19 @@ import models.Departments;
 import java.util.List;
 
 public interface DepartmentsDao {
-    //List
+    //LIST
     List<Departments> getAll();
 
-    //Departments category
+    //CREATE
     void add (Departments category);
 
-    //Read
+    //READ
     Departments findById(int id);
 
-    //update
+    //UPDATE
     void update(int id, String name);
 
-    //Delete
+    //DELETE
     void deleteById(int id);
     void deleteAllDepartments();
 }
