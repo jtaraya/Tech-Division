@@ -8,6 +8,7 @@ public interface StaffDao {
 
     // LIST
     List<Staff> getAll();
+    List<Staff> getByDepartment(int departmentId);
 
     // CREATE
     void add(Staff staff);
