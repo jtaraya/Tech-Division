@@ -23,7 +23,12 @@ public class Departments {
         return  getId() == departments.getId() &&
                 Objects.equals(getName(), departments.getName());
     }
-    
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(),getId());
+    }
 
     public static ArrayList<Departments> getAll(){
         return mInstances;
@@ -35,6 +40,11 @@ public class Departments {
 
     public int getId(){
         return this.id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 
